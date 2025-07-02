@@ -115,8 +115,7 @@ python app/server.py
            |
            +------（不足がある限りループ）------------------+
 ---
-```
-## 🧠 janicre の仕組み（簡易版）
+#### 🧠 janicre の仕組み（簡易版）
 ```
 janicre（Japanese Natural Input Contract REquirements）は、
 自然言語で与えられた契約情報を 構造化して検証・補完 するための最小スキーマ仕様です。
@@ -132,7 +131,7 @@ AIによる契約書作成の精度と信頼性を向上させるために設計
 📦 スキーマ定義形式
 .janicre 拡張子を持つ JSON ファイルで定義。以下は例です：
 
-
+```
 {
   "spec": "rental_agreement",
   "fields": [
@@ -151,6 +150,7 @@ AIによる契約書作成の精度と信頼性を向上させるために設計
     // 以降略
   ]
 }
+[DOI]Okazaki, T. (2025). A Log-Scale, Reversible Semantic-Commit Manifest\\ for Multi-Agent Software Reasoning [Zenodo]. https://doi.org/10.5281/zenodo.15466186
 ```
 🎯 フィールド属性
 属性名	説明
@@ -159,7 +159,7 @@ type	string / number / boolean のいずれか
 required	必須項目かどうか
 aliases	自然文で使われることが多い日本語表現（GPT補完・照合に使用）
 
-🔄 janicre の処理フロー
+####🔄 janicre の処理フロー
 normalize(json, schema)
 
 エイリアス名の補正や型補正を行い、形式を揃えます。
