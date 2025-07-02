@@ -1,5 +1,7 @@
 
 # 📄 Contract AI Agent
+<img width="1709" alt="スクリーンショット 2025-06-16 5 22 16" src="https://github.com/user-attachments/assets/f584c8dc-3f88-40e9-a157-8eae8cd100f9" />
+<img width="1706" alt="スクリーンショット 2025-06-16 5 22 03" src="https://github.com/user-attachments/assets/86de3680-ed3b-45a4-9bc2-431062066eaa" />
 
 AIを活用して、CLI上で日本語の契約書（賃貸契約書・業務委託契約書）を自動生成・PDF出力するツールです。
 
@@ -62,6 +64,7 @@ python app/server.py
 ---
 
 ## 📦 `.apdf`とは？
+<img width="824" alt="スクリーンショット 2025-06-16 2 03 07" src="https://github.com/user-attachments/assets/318e3a24-ea9a-4ea6-946e-74456985bde4" />
 
 - 🧾 PDFレイアウトを保持
 - 🔍 構造化テキストで全文検索対応
@@ -150,16 +153,16 @@ AIによる契約書作成の精度と信頼性を向上させるために設計
     // 以降略
   ]
 }
-[DOI]Okazaki, T. (2025). A Log-Scale, Reversible Semantic-Commit Manifest\\ for Multi-Agent Software Reasoning [Zenodo]. https://doi.org/10.5281/zenodo.15466186
 ```
-🎯 フィールド属性
+[DOI]Okazaki, T. (2025). A Log-Scale, Reversible Semantic-Commit Manifest\\ for Multi-Agent Software Reasoning [Zenodo]. https://doi.org/10.5281/zenodo.15466186
+#### 🎯 フィールド属性
 属性名	説明
 name	プログラム上での正式なキー名（テンプレートに流し込まれる）
 type	string / number / boolean のいずれか
 required	必須項目かどうか
 aliases	自然文で使われることが多い日本語表現（GPT補完・照合に使用）
 
-####🔄 janicre の処理フロー
+#### 🔄 janicre の処理フロー
 normalize(json, schema)
 
 エイリアス名の補正や型補正を行い、形式を揃えます。
@@ -170,12 +173,6 @@ validate(json, schema)
 
 未入力のフィールドをリストで返します（後続の質問生成に使用）。
 
-💡 導入のメリット
-項目	janicre 導入前	janicre 導入後
-JSON信頼性	GPT依存で形式ゆらぎが大きい	スキーマで構造を統一・正規化できる
-欠損補完	手動で確認しながら聞き直しが必要	自動で「何が足りないか」を検出可能
-契約テンプレート整合性	フィールド名ミスマッチが多発	テンプレートと完全に一致した構造へ
-拡張性	各契約タイプの条件が混在しがち	各 .janicre によって分離・再利用可能
 
 ---
 
