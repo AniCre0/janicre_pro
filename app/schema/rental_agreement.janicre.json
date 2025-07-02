@@ -1,0 +1,83 @@
+{
+  "spec": "rental_agreement",
+  "fields": [
+    {
+      "name": "lessor_name",
+      "type": "string",
+      "required": true,
+      "aliases": ["貸主名", "家主名", "大家名"]
+    },
+    {
+      "name": "lessee_name",
+      "type": "string",
+      "required": true,
+      "aliases": ["借主名", "入居者名", "テナント名"]
+    },
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "aliases": ["物件住所", "所在地", "賃貸物件住所"]
+    },
+    {
+      "name": "property_structure",
+      "type": "string",
+      "required": true,
+      "aliases": ["建物構造", "構造", "建物形式"]
+    },
+    {
+      "name": "property_size",
+      "type": "number",
+      "required": true,
+      "aliases": ["専有面積", "面積", "広さ"]
+    },
+    {
+      "name": "start_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["契約開始日", "開始日", "入居開始日"]
+    },
+    {
+      "name": "end_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["契約終了日", "終了日", "退去予定日"]
+    },
+    {
+      "name": "rent_amount",
+      "type": "number",
+      "required": true,
+      "aliases": ["家賃", "賃料", "月額賃料"]
+    },
+    {
+      "name": "payment_day",
+      "type": "number",
+      "required": true,
+      "aliases": ["支払日", "家賃支払日", "支払い日"]
+    },
+    {
+      "name": "deposit_amount",
+      "type": "number",
+      "required": true,
+      "aliases": ["敷金", "保証金", "デポジット"]
+    },
+    {
+      "name": "key_money",
+      "type": "number",
+      "required": true,
+      "aliases": ["礼金", "権利金", "キー料"]
+    },
+    {
+      "name": "notice_period",
+      "type": "number",
+      "required": true,
+      "aliases": ["解約予告期間", "解約予告日数", "通知期間"]
+    },
+    {
+      "name": "contract_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["契約日", "締結日", "作成日"]
+    }
+  ]
+}

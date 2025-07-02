@@ -1,0 +1,65 @@
+{
+  "spec": "outsourcing_agreement",
+  "fields": [
+    {
+      "name": "client_name",
+      "type": "string",
+      "required": true,
+      "aliases": ["クライアント名", "発注者名", "依頼者"]
+    },
+    {
+      "name": "contractor_name",
+      "type": "string",
+      "required": true,
+      "aliases": ["受託者名", "契約者", "請負人"]
+    },
+    {
+      "name": "task_description",
+      "type": "string",
+      "required": true,
+      "aliases": ["業務内容", "仕事内容", "業務詳細"]
+    },
+    {
+      "name": "start_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["開始日", "業務開始日", "契約開始日"]
+    },
+    {
+      "name": "end_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["終了日", "業務終了日", "契約終了日"]
+    },
+    {
+      "name": "total_fee",
+      "type": "string",
+      "required": true,
+      "aliases": ["報酬総額", "契約金額", "合計費用", "総額"]
+    },
+    {
+      "name": "payment_method",
+      "type": "string",
+      "required": true,
+      "aliases": ["支払い方法", "振込方法", "入金方法"]
+    },
+    {
+      "name": "payment_due_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["支払期限", "入金期限", "支払期日"]
+    },
+    {
+      "name": "copyright_holder",
+      "type": "string",
+      "required": true,
+      "aliases": ["著作権帰属", "著作権保持者", "権利帰属"]
+    },
+    {
+      "name": "contract_date",
+      "type": "string",
+      "required": true,
+      "aliases": ["契約日", "締結日", "書類作成日"]
+    }
+  ]
+}
