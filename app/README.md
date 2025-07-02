@@ -117,27 +117,65 @@ python app/server.py
 ---
 ```
 ## 🧠 janicre の仕組み（簡易版）
+```
+janicre（Japanese Natural Input Contract REquirements）は、
+自然言語で与えられた契約情報を 構造化して検証・補完 するための最小スキーマ仕様です。
+AIによる契約書作成の精度と信頼性を向上させるために設計されました。
 
-1. **スキーマ読み込み**
-   ```python
-   schema = load_schema("rental_agreement.janicre")
-   ```
+🔧 目的
+✅ GPTなどのLLMが生成する不定形なJSONをバリデート＆正規化する
 
-2. **正規化（Normalize）**
-   - 「契約開始日」→ `start_date` などに変換
+✅ 契約テンプレートに必要な構造的なフィールドを明示する
 
-3. **バリデーション（Validate）**
-   - 必須項目が入力されているか確認
+✅ ユーザー入力との不足項目を検出し、追加質問を自動生成する
 
-4. **不足項目の質問文生成**
+📦 スキーマ定義形式
+.janicre 拡張子を持つ JSON ファイルで定義。以下は例です：
 
-5. **ループ再生成**
-   - 入力が完全になるまで繰り返し
 
-6. **PDF出力**
-   ```python
-   render_contract(template, context, output_path)
-   ```
+{
+  "spec": "rental_agreement",
+  "fields": [
+    {
+      "name": "property_address",
+      "type": "string",
+      "required": true,
+      "aliases": ["物件の住所", "所在地"]
+    },
+    {
+      "name": "property_size",
+      "type": "number",
+      "required": true,
+      "aliases": ["面積", "広さ"]
+    }
+    // 以降略
+  ]
+}
+```
+🎯 フィールド属性
+属性名	説明
+name	プログラム上での正式なキー名（テンプレートに流し込まれる）
+type	string / number / boolean のいずれか
+required	必須項目かどうか
+aliases	自然文で使われることが多い日本語表現（GPT補完・照合に使用）
+
+🔄 janicre の処理フロー
+normalize(json, schema)
+
+エイリアス名の補正や型補正を行い、形式を揃えます。
+
+validate(json, schema)
+
+スキーマ上 required: true で定義されたフィールドが埋まっているか検査します。
+
+未入力のフィールドをリストで返します（後続の質問生成に使用）。
+
+💡 導入のメリット
+項目	janicre 導入前	janicre 導入後
+JSON信頼性	GPT依存で形式ゆらぎが大きい	スキーマで構造を統一・正規化できる
+欠損補完	手動で確認しながら聞き直しが必要	自動で「何が足りないか」を検出可能
+契約テンプレート整合性	フィールド名ミスマッチが多発	テンプレートと完全に一致した構造へ
+拡張性	各契約タイプの条件が混在しがち	各 .janicre によって分離・再利用可能
 
 ---
 
